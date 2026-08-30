@@ -1,0 +1,141 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "freeweb": {
+      "command": [
+        "npx",
+        "-y",
+        "freeweb-mcp@latest"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "playwright": {
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "context": {
+      "command": [
+        "npx",
+        "-y",
+        "tsx",
+        "C:\\Users\\Oliver\\context-mcp-server\\src\\index.ts"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "paper": {
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "http://127.0.0.1:29979/mcp"
+      ],
+      "enabled": true,
+      "type": "local"
+    }
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen2.5-coder:7b": {
+          "name": "Qwen 2.5 Coder 7B"
+        }
+      }
+    }
+  },
+  "plugin": ["@dietrichgebert/ponytail"],
+  "model": "ollama/qwen2.5-coder:7b",
+  "lsp": true,
+  "formatter": {
+    "prettier": {
+      "extensions": [
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx",
+        ".html",
+        ".css",
+        ".md",
+        ".json",
+        ".yaml"
+      ]
+    },
+    "biome": {
+      "extensions": [
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx"
+      ]
+    }
+  },
+  "default_agent": "build",
+  "permission": {
+    "read": "allow",
+    "edit": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "bash": "allow",
+    "task": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "todowrite": "allow",
+    "skill": "allow",
+    "question": "allow"
+  },
+  "command": {
+    "test": {
+      "description": "Run the test suite",
+      "template": "Run the project's test suite. Check package.json to determine the test command. Run it, report results, and if there are failures, analyze and suggest fixes.",
+      "agent": "oo-tester"
+    },
+    "commit": {
+      "description": "Create a conventional commit",
+      "template": "Stage, review, and create a conventional commit with a descriptive message. Format: type(scope): description. Types: feat, fix, chore, docs, refactor, test, style."
+    },
+    "review": {
+      "description": "Run a full code review with confidence-based filtering",
+      "template": "Review the recent code changes in this project. Use the confidence-based filtering approach: only report issues you are >80% confident about, cite exact lines, describe concrete failure modes, read surrounding context. Produce a structured report with CRITICAL/HIGH/MEDIUM/LOW findings.",
+      "agent": "oo-code-reviewer"
+    },
+    "plan": {
+      "description": "Create a phased implementation plan for a feature",
+      "template": "Create a detailed implementation plan for this feature. Break it into phases: Phase 1 = minimum viable, Phase 2 = core experience, Phase 3 = edge cases, Phase 4 = optimization. For each step include: exact file paths, specific actions, dependencies, risk level. Include testing strategy and success criteria.",
+      "agent": "oo-planner"
+    },
+    "perf": {
+      "description": "Run a performance audit and optimization analysis",
+      "template": "Analyze this project's performance. Check: bundle size, render performance, algorithmic efficiency, memory leaks, network optimization. Report findings with specific file paths, line numbers, and optimization suggestions. Use Lighthouse metrics as reference (FCP < 1.8s, LCP < 2.5s, bundle < 200KB gzip)."
+    },
+    "deep-research": {
+      "description": "Conduct thorough multi-source research on any topic",
+      "template": "Research this topic thoroughly using the deep-research workflow. Break into 3-5 sub-questions, search multiple sources per question, cross-reference findings, produce a structured report with executive summary, themed sections with citations, and key takeaways. Every claim needs a source.",
+      "agent": "oo-research"
+    },
+    "context": {
+      "description": "Analyze project structure and patterns",
+      "template": "Analyze this project's structure, architecture, and coding patterns. Identify the tech stack, project conventions, and any notable patterns. Produce a project overview.",
+      "agent": "oo-analyze"
+    },
+    "deploy": {
+      "description": "Deploy the project",
+      "template": "Deploy this project. First check if there are any uncommitted changes. Then determine the deployment method from package.json or config files. Execute the deployment and report the result."
+    },
+    "eval": {
+      "description": "Run agent evaluations",
+      "template": "Run agent evaluations. Read task definitions from `.opencode/eval/tasks/` and execute each one against the specified agents. Run all judges (test, grep, reviewer) and produce a comparison report saved to `.opencode/eval/results/`. If a task name is provided, run only that task."
+    }
+  }
+}

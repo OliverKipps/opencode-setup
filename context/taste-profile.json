@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "version": 1,
+    "createdAt": "2026-01-01T00:00:00Z",
+    "updatedAt": "2026-01-01T00:00:00Z",
+    "caseStudyCount": 0,
+    "lastSignalUpdate": null
+  },
+  "signals": [
+    {
+      "id": "example-signal",
+      "name": "Example Signal",
+      "definition": "TODO: Replace — describe a design preference, e.g. 'Prefers dark minimal layouts'",
+      "patterns": [
+        { "patternId": "example", "patternValue": "e.g. dark background #111", "weight": 0.8, "reason": "Why this matters" }
+      ],
+      "weight": 0.8,
+      "confidence": "low",
+      "sources": ["example-site"]
+    }
+  ],
+  "preferences": {
+    "colorPalette": { "temperature": "TODO", "saturation": "TODO" },
+    "typography": { "elegance": "TODO" },
+    "spacing": { "density": "TODO" },
+    "animation": { "smoothness": "TODO" },
+    "layout": { "grid": "TODO" }
+  },
+  "evolution": [],
+  "contradictions": []
+}

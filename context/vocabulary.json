@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "version": 1,
+    "createdAt": "2026-01-01T00:00:00Z",
+    "updatedAt": "2026-01-01T00:00:00Z",
+    "termCount": 1
+  },
+  "terms": {
+    "example-term": {
+      "definition": "TODO: Replace — your definition for this word in your design vocabulary",
+      "source": "example-site",
+      "relatedTerms": [],
+      "confidence": "low"
+    }
+  }
+}
