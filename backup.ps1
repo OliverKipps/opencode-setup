@@ -1,3 +1,6 @@
+# ponytail: PUBLIC template repo - backup.ps1 will overwrite placeholders with personal data.
+# For personal laptop migration, use opencode-setup-private (not this repo).
+# Or make this repo private before running backup.
 $root=$PSScriptRoot
 function Sanitize($src,$dst){
   $t=Get-Content $src -Raw
